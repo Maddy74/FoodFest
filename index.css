@@ -1,0 +1,370 @@
+
+:root{
+  --bg:#0f1724;
+  --card: rgba(255,255,255,0.04);
+  --muted: #bfc9d7;
+  --accent1: #6ce7d1; /* calm teal */
+  --accent2: #9b7cff; /* gentle violet */
+  --neon1: #00f0ff;
+  --neon2: #ff00d2;
+  --glass: rgba(255,255,255,0.03);
+  --glass-2: rgba(255,255,255,0.05);
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:#eaf0ff;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  position:relative;
+  overflow-x:hidden;
+}
+
+/* === HERO IMAGE === */
+.hero-img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+  margin-bottom: 1.5rem;
+  animation: floatIn 1.5s ease forwards;
+  opacity: 0;
+}
+
+@keyframes floatIn {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Make image scale beautifully on smaller screens */
+@media (max-width: 768px) {
+  .hero-img {
+    max-width: 90vw;
+    margin-bottom: 1rem;
+  }
+}
+/* Vanta background behind everything */
+#vanta-bg{
+  position:fixed;
+  inset:0;
+  z-index:0;
+}
+
+/* Topbar */
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:20px 40px;
+  position:relative;
+  z-index:5;
+  gap:20px;
+}
+.brand{display:flex;align-items:center;gap:14px}
+.logo-circle{
+  width:52px;height:52px;border-radius:12px;
+  background:linear-gradient(135deg,var(--accent2),var(--accent1));
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;color:#021; font-size:20px; color:#061220;
+  box-shadow:0 6px 20px rgba(0,0,0,0.45);
+}
+.brand-text{font-weight:600;color:var(--muted)}
+.nav a{color:var(--muted);text-decoration:none;margin-left:18px}
+.btn-primary{
+  background:linear-gradient(90deg,var(--accent1),var(--accent2));
+  padding:8px 12px;border-radius:10px;color:#021;font-weight:700;
+  text-decoration:none;
+}
+
+/* Hero */
+.hero-section{
+  display:flex;
+  gap:36px;
+  padding:48px;
+  align-items:center;
+  position:relative;
+  z-index:5;
+}
+.hero-left{flex:1;max-width:760px}
+.hero-right{width:420px;flex-shrink:0;display:flex;flex-direction:column;gap:12px}
+
+.tagline{
+  font-size:48px;margin:0 0 10px 0;line-height:1.02;font-weight:800;
+  letter-spacing:-0.8px;
+}
+.tagline .sup{font-size:22px;position:relative;top:-8px}
+.neon{
+  background:linear-gradient(90deg,var(--neon1),var(--neon2));
+  -webkit-background-clip:text;
+  background-clip:text;color:transparent;
+  text-shadow:0 6px 28px rgba(0,0,0,0.5);
+  display:inline-block;padding:6px 10px;border-radius:8px;
+}
+
+/* CTA */
+.lead{color:var(--muted);max-width:58ch}
+.cta-row{margin:18px 0;display:flex;gap:12px}
+.cta{background:var(--glass);padding:10px 14px;border-radius:10px;color:var(--muted);text-decoration:none;font-weight:600}
+.cta.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06)}
+
+/* hero images */
+.hero-img{width:100%;border-radius:14px;box-shadow:0 12px 40px rgba(2,6,23,0.6)}
+.image-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.image-grid img{width:100%;border-radius:10px;object-fit:cover;height:92px}
+
+/* Cards */
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); margin:28px 48px;padding:22px;border-radius:14px; z-index:5}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid-3 article{background:var(--glass-2);padding:12px;border-radius:10px}
+.menu-list{display:flex;gap:12px;flex-wrap:wrap}
+.menu-item{flex:1;min-width:220px;background:rgba(255,255,255,0.02);padding:14px;border-radius:10px}
+
+/* Chatbot */
+.chatbot-card{
+  position:fixed;
+  right:32px;
+  bottom:32px;
+  width:360px;
+  max-height:66vh;
+  display:flex;
+  flex-direction:column;
+  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border-radius:14px;
+  overflow:hidden;
+  z-index:10;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+.chat-header{padding:14px 16px;border-bottom:1px solid rgba(255,255,255,0.03)}
+.chat-body{padding:12px;overflow:auto;flex:1;display:flex;flex-direction:column;gap:10px}
+.chat-input{display:flex;padding:10px;border-top:1px solid rgba(255,255,255,0.03)}
+.chat-input input{flex:1;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#eaf0ff}
+.chat-input button{border:none;background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:10px 12px;margin-left:8px;border-radius:10px;color:#021}
+
+/* messages */
+.bot-msg, .user-msg, .sys-msg{padding:10px;border-radius:10px;max-width:86%}
+.bot-msg{background:rgba(0,0,0,0.45);align-self:flex-start}
+.user-msg{background:linear-gradient(90deg,#132a28, #172244);align-self:flex-end}
+.sys-msg{background:rgba(255,255,255,0.02);align-self:center;color:var(--muted)}
+
+/* Footer */
+.site-footer{padding:18px 40px;color:var(--muted);display:flex;justify-content:space-between;z-index:5}
+
+/* small screens */
+@media (max-width:880px){
+  .hero-section{flex-direction:column;padding:28px}
+  .hero-right{width:100%}
+  .grid-3{grid-template-columns:1fr}
+  .topbar{padding:12px 18px}
+}
+
+/* === Floating Chat Icon === */
+.chat-toggle {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent1), var(--accent2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  color: #021;
+  font-size: 28px;
+  animation: pulse 2.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%,100% { transform: scale(1); box-shadow: 0 0 10px rgba(255,255,255,0.25); }
+  50% { transform: scale(1.08); box-shadow: 0 0 28px rgba(255,255,255,0.45); }
+}
+
+/* hide chatbot until opened */
+.chatbot-card {
+  transform: translateY(120%);
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+.chatbot-card.open {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* close on small screens */
+@media (max-width: 600px) {
+  .chatbot-card {
+    width: 92vw;
+    right: 4vw;
+    bottom: 90px;
+    max-height: 70vh;
+  }
+  .chat-toggle {
+    width: 56px;
+    height: 56px;
+    font-size: 26px;
+  }
+}
+
+/* === RESPONSIVE MOBILE OPTIMIZATION === */
+
+/* Base text scaling */
+body, p, input, button {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+}
+
+/* Fine-tune chatbot appearance */
+.chatbot-card {
+  font-size: 1rem;
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+/* Chat header (title & close button) */
+.chatbot-card header {
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Chat content (bot and user messages) */
+.chatbot-card .chat-content {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Input area */
+.chatbot-card .chat-input {
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+}
+
+/* Submit button inside chatbot */
+.chatbot-card button.send-btn {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+/* === MOBILE ADJUSTMENTS === */
+@media (max-width: 768px) {
+  body {
+    font-size: 1.05rem;
+  }
+
+  .chatbot-card {
+    width: 92vw;
+    right: 4vw;
+    bottom: 90px;
+    max-height: 70vh;
+    padding: 1.2rem;
+  }
+
+  .chatbot-card header {
+    font-size: 1.4rem;
+  }
+
+  .chatbot-card .chat-content {
+    font-size: 1.1rem;
+    padding: 0.75rem;
+  }
+
+  .chatbot-card .chat-input {
+    font-size: 1.05rem;
+    padding: 0.9rem;
+  }
+
+  .chatbot-card button.send-btn {
+    font-size: 1.05rem;
+    padding: 0.7rem 1.2rem;
+  }
+
+  /* Make toggle button more tappable */
+  .chat-toggle {
+    width: 64px;
+    height: 64px;
+    font-size: 30px;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 420px) {
+  .chatbot-card header {
+    font-size: 1.2rem;
+  }
+  .chatbot-card .chat-content {
+    font-size: 1rem;
+  }
+  .chatbot-card .chat-input {
+    font-size: 1rem;
+  }
+}
+
+/* === Snack Slideshow === */
+.slideshow {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.slideshow img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+.snack-text {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f8e9ff;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+/* Fade effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .slideshow img {
+    height: 220px;
+  }
+  .snack-text {
+    font-size: 1rem;
+  }
+}
+

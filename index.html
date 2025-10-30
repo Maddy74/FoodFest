@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>T³ — Taste • Tradition • Technology — Food Fest</title>
+  <link rel="stylesheet" href="index.css" />
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <!-- Vanta background container -->
+  <div id="vanta-bg"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo-circle">T3</div>
+      <div class="brand-text">Taste <span class="dot">&middot;</span> Tradition <span class="dot">&middot;</span> Technology</div>
+    </div>
+    <!-- <nav class="nav">
+      <a href="#about">About</a>
+      <a href="#events">Events</a>
+      <a href="#menu">Menu</a>
+      <a href="#chatbot" class="btn-primary">Ask the NutriBot</a>
+    </nav> -->
+  </header>
+
+  <main class="hero-section">
+    <div class="hero-left">
+      <h1 class="tagline">T<span class="sup">3</span> <span class="neon">Taste • Tradition • Technology</span></h1>
+      <p class="lead">
+        Food Fusion — A celebration of flavours, technique, and tech.
+        Join us on <strong>31st October 2025</strong> at the MCA Dept, ATRIA Institute of Technology.
+      </p>
+      <div class="highlights">
+        <div><strong>Street & Fusion Food</strong></div>
+        <div><strong>Workshops & Demos</strong></div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <!-- Replace with your event roll images (put them in assets/) -->
+      <img src="./assets/hero.png" alt="Layered chaat" class="hero-img">
+       <div class="slideshow">
+    <img id="snack-img" src="./assets/dahi.jpg" alt="Dahi Chaat Dip" />
+    <p class="snack-text" id="snack-text">Dahi Chaat Dip</p>
+  </div>
+    </div>
+  </main>
+
+  <section id="about" class="card">
+    <h2>About T³</h2>
+    <p>T³ (Taste ⋅ Tradition ⋅ Technology) is a food fest created to explore culinary roots and future. Expect live demos, tasting booths, fusion experiments and a focus on mindful eating.</p>
+  </section>
+
+
+  <!-- Chatbot -->
+  <aside id="chatbot" class="chatbot-card">
+    <div class="chat-header">
+      <div><strong>T³ NutriBot</strong></div>
+      <div class="status">Healthy tips & snack macros</div>
+    </div>
+
+    <div class="chat-body" id="chatBody">
+      <div class="bot-msg">Hi! I can suggest snacks, estimate calories & protein, and help adjust portions based on your weight and goals. Type "help" to get started.</div>
+    </div>
+
+    <form id="chatForm" class="chat-input">
+      <input id="chatInput" placeholder="Tell me your weight / craving / goal (e.g. 70kg, craving chips, want to lose weight)" autocomplete="off" />
+      <button type="submit"><i class="fa fa-paper-plane"></i></button>
+    </form>
+  </aside>
+
+  <footer class="site-footer">
+    <div>© ATRIA Institute of Technology — T³ Food Fusion • 31 Oct 2025</div>
+    <div class="credits">Built with ❤️ — GSAP & Vanta.js demo</div>
+  </footer>
+
+
+  <!-- Floating Chat Icon -->
+<div id="chatToggle" class="chat-toggle">
+  <i class="fa-solid fa-robot"></i>
+</div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.21/vanta.fog.min.js"></script>
+  
+  <!-- Vanta: using net effect as a smooth 3D background; if blocked, change to waves/clouds -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.21/vanta.net.min.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
