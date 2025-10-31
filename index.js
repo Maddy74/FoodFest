@@ -294,3 +294,63 @@ function changeSnack() {
 
 // Change every 5 seconds
 setInterval(changeSnack, 5000);
+
+// ----------------------- Feedback Form -----------------------
+const feedbackForm = document.getElementById('feedbackForm');
+const feedbackMsg = document.getElementById('feedbackMessage');
+
+// ✅ Replace with your Google Script Web App URL:
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz-JokvqzZB6gBA8ftpZjpTlAAQJkMnAArUwbY6pKtDyHiYa3VyKCOCdBqMn7ziUXNn/exec";
+
+// Generate stars
+document.querySelectorAll('.stars').forEach(container => {
+  for (let i = 1; i <= 5; i++) {
+    const star = document.createElement('i');
+    star.classList.add('fa-solid', 'fa-star');
+    star.dataset.value = i;
+    container.appendChild(star);
+  }
+});
+
+// Handle star clicks
+document.querySelectorAll('.stars').forEach(starSet => {
+  starSet.addEventListener('click', (e) => {
+    if (!e.target.matches('.fa-star')) return;
+    const rating = e.target.dataset.value;
+    const allStars = starSet.querySelectorAll('.fa-star');
+    allStars.forEach(star => {
+      star.classList.toggle('active', star.dataset.value <= rating);
+    });
+    starSet.dataset.rating = rating;
+  });
+});
+
+// Handle form submission
+if (feedbackForm) {
+  feedbackForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const ratings = {};
+    document.querySelectorAll('.stars').forEach(s => {
+      const dish = s.dataset.dish;
+      const rate = s.dataset.rating || "0";
+      ratings[dish] = rate;
+    });
+
+    try {
+      const res = await fetch(SCRIPT_URL, {
+        method: 'POST',
+        body: JSON.stringify(ratings),
+        headers: { 'Content-Type': 'application/json' },
+        mode: 'no-cors' // required for Google Apps Script
+      });
+
+      feedbackMsg.textContent = "Thank you for sharing your feedback! 💚";
+      feedbackMsg.style.display = "block";
+      feedbackForm.reset();
+      document.querySelectorAll('.fa-star').forEach(star => star.classList.remove('active'));
+    } catch (err) {
+      feedbackMsg.textContent = "Something went wrong. Please try again!";
+      feedbackMsg.style.display = "block";
+    }
+  });
+}

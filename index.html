@@ -9,6 +9,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
 </head>
 <body>
   <!-- Vanta background container -->
@@ -72,6 +74,46 @@
       <button type="submit"><i class="fa fa-paper-plane"></i></button>
     </form>
   </aside>
+
+  <!-- ==================== FEEDBACK FORM ==================== -->
+<section id="feedback" class="card">
+  <h2>Give Your Feedback 🍴</h2>
+  <p>We’d love to know your thoughts! Rate your favourite dishes below:</p>
+
+  <form id="feedbackForm" class="feedback-form">
+    <div class="rating-item">
+      <label>Papdi Chaat</label>
+      <div class="stars" data-dish="Papdi Chaat"></div>
+    </div>
+
+    <div class="rating-item">
+      <label>Bhel Puri</label>
+      <div class="stars" data-dish="Bhel Puri"></div>
+    </div>
+
+    <div class="rating-item">
+      <label>Oreo Swiss Roll</label>
+      <div class="stars" data-dish="Oreo Swiss Roll"></div>
+    </div>
+
+    <div class="rating-item">
+      <label>Mint Pulse Cooler</label>
+      <div class="stars" data-dish="Mint Pulse Cooler"></div>
+    </div>
+
+    <div class="rating-item">
+      <label>Fryrems Delight</label>
+      <div class="stars" data-dish="Fryrems Delight"></div>
+    </div>
+
+    <button type="submit" class="btn-primary" style="margin-top:16px;">Submit Feedback</button>
+  </form>
+
+  <div id="feedbackMessage" style="margin-top:14px;color:var(--accent1);display:none;">
+    Thank you for sharing your feedback! 💚
+  </div>
+</section>
+
 
   <footer class="site-footer">
     <div>© ATRIA Institute of Technology — T³ Food Fusion • 31 Oct 2025</div>
