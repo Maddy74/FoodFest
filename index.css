@@ -421,3 +421,26 @@ h1, h2, h3 {
   z-index: 10; /* 👈 ensures it's above the background */
 }
 
+/* === Fix Feedback vs Chatbot Overlap === */
+
+/* Push feedback section slightly back */
+section#feedback,
+#feedback,
+.feedback-form,
+button[type="submit"] {
+  position: relative;
+  z-index: 5 !important; /* lower than chatbot */
+}
+
+/* Keep chatbot icon and popup on top */
+.chat-toggle {
+  z-index: 50 !important;
+}
+
+.chatbot-card {
+  z-index: 40 !important;
+}
+
+@media (max-width: 600px) {
+  #feedback { margin-bottom: 120px; } /* gives chatbot breathing space */
+}
